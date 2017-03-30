@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Simply Restart Service: for local development, red/green, without creating a new task definition",
   "main": "lib/index.js",
-  "bin": "lib/index.js",
+  "bin": {
+    "ser": "lib/index.js"
+  },
   "scripts": {
     "build": "babel src --out-dir lib --ignore test.js",
     "coverage": "jest --coverage",

@@ -20,5 +20,8 @@ then look at [ecs-deploy](https://github.com/fabfuel/ecs-deploy) project.
 It requires same env vars as `aws-sdk`
 
 ```bash
+$ npm i -g simple-ecs-restart-cli
+$ ser
 
+# Follow the wizard
 ```
