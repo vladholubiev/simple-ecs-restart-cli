@@ -1,5 +1,7 @@
 # Simple ECS restart CLI
 
+![demo](simple-ecs-restart-demo.gif)
+
 ## Features
 
 This is a CLI for [simple-ecs-restart](https://github.com/vladgolubev/simple-ecs-restart)
