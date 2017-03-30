@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simply Restart Service: for local development, red/green, without creating a new task definition",
   "main": "lib/index.js",
+  "bin": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --ignore test.js",
     "coverage": "jest --coverage",
@@ -14,7 +15,8 @@
   "repository": "vladgolubev/simple-ecs-restart-cli",
   "license": "MIT",
   "dependencies": {
-    "simple-ecs-restart": "^1.0.3"
+    "inquirer": "^3.0.6",
+    "simple-ecs-restart": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
