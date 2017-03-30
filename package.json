@@ -1,0 +1,31 @@
+{
+  "name": "simple-ecs-restart-cli",
+  "version": "1.0.0",
+  "description": "Simply Restart Service: for local development, red/green, without creating a new task definition",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib --ignore test.js",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --fix --format=node_modules/eslint-formatter-pretty",
+    "prepublish": "npm run build",
+    "test": "jest"
+  },
+  "author": "Vlad Holubiev",
+  "repository": "vladgolubev/simple-ecs-restart-cli",
+  "license": "MIT",
+  "dependencies": {
+    "simple-ecs-restart": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-preset-env": "^1.2.2",
+    "eslint": "^3.18.0",
+    "eslint-config-google": "0.6.0",
+    "eslint-formatter-pretty": "^1.1.0",
+    "jest": "^19.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

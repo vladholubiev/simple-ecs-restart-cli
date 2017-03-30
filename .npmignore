@@ -1,0 +1,12 @@
+.idea/
+coverage/
+examples/
+src/
+
+.DS_store
+.babelrc
+.eslintignore
+.eslintrc
+wallaby.config.js
+*draft.js
+yarn.lock
