@@ -53,7 +53,7 @@ inquirer.prompt(questions).then(async answers => {
   await start(region, cluster, service);
   startSpinner.start();
 
-  console.log(`✅  Successfully restarted ${service}!`);
+  console.log(`\n✅  Successfully restarted ${service}!`);
 
   return process.exit(1);
 });
