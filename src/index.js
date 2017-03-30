@@ -45,15 +45,15 @@ const questions = [
 inquirer.prompt(questions).then(async answers => {
   const {region, cluster, service} = answers;
 
-  const stopSpinner = ora(`🔴 Stopping ${service}`).start();
+  const stopSpinner = ora(`🔴  Stopping ${service}`).start();
   await stop(region, cluster, service);
   stopSpinner.stop();
 
-  const startSpinner = ora(`🔶 Starting ${service}`).start();
+  const startSpinner = ora(`🔶  Starting ${service}`).start();
   await start(region, cluster, service);
   startSpinner.start();
 
-  console.log(`✅ Successfully restarted ${service}!`);
+  console.log(`✅  Successfully restarted ${service}!`);
 
   return process.exit(1);
 });
