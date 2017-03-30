@@ -21,7 +21,8 @@ const questions = [
       'ap-northeast-1',
       'ap-southeast-1',
       'ap-southeast-2'
-    ]
+    ],
+    default: 'us-east-1'
   },
   {
     type: 'input',
@@ -47,11 +48,11 @@ inquirer.prompt(questions).then(async answers => {
 
   const stopSpinner = ora(`🔴  Stopping ${service}`).start();
   await stop(region, cluster, service);
-  stopSpinner.stop();
+  stopSpinner.stopAndPersist();
 
   const startSpinner = ora(`🔶  Starting ${service}`).start();
   await start(region, cluster, service);
-  startSpinner.start();
+  startSpinner.stopAndPersist();
 
   console.log(`\n✅  Successfully restarted ${service}!`);
 
