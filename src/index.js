@@ -2,6 +2,7 @@
 
 import inquirer from 'inquirer';
 import {ls, start, stop} from 'simple-ecs-restart';
+import ora from 'ora';
 
 const questions = [
   {
@@ -42,7 +43,17 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(async answers => {
-  const service = answers;
+  const {region, cluster, service} = answers;
+
+  const stopSpinner = ora(`🔴 Stopping ${service}`).start();
+  await stop(region, cluster, service);
+  stopSpinner.stop();
+
+  const startSpinner = ora(`🔶 Starting ${service}`).start();
+  await start(region, cluster, service);
+  startSpinner.start();
+
+  console.log(`✅ Successfully restarted ${service}!`);
 
   return process.exit(1);
 });

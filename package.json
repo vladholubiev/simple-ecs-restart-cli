@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "inquirer": "^3.0.6",
+    "ora": "^1.2.0",
     "simple-ecs-restart": "^1.1.0"
   },
   "devDependencies": {
