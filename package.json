@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "inquirer": "^3.0.6",
+    "node-notifier": "^5.1.2",
     "ora": "^1.2.0",
     "simple-ecs-restart": "^1.1.0"
   },
