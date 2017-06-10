@@ -34,12 +34,14 @@ inquirer.prompt(questions).then(async answers => {
 
   const stopSpinner = ora(stopMessage).start();
   notifier.notify(stopMessage);
+
   await stop(region, cluster, service);
   stopSpinner.stopAndPersist();
 
   const startSpinner = ora(startMessage).start();
-  await start(region, cluster, service);
   notifier.notify(startMessage);
+
+  await start(region, cluster, service);
   startSpinner.stopAndPersist();
 
   console.log(`\n${restartMessage}`);
