@@ -7,25 +7,6 @@ import notifier from 'node-notifier';
 
 const questions = [
   {
-    type: 'list',
-    name: 'region',
-    message: 'AWS Region',
-    choices: [
-      'us-east-1',
-      'us-east-2',
-      'us-west-1',
-      'us-west-2',
-      'ca-central-1',
-      'eu-central-1',
-      'eu-west-1',
-      'eu-west-2',
-      'ap-northeast-1',
-      'ap-southeast-1',
-      'ap-southeast-2'
-    ],
-    default: 'us-east-1'
-  },
-  {
     type: 'input',
     name: 'cluster',
     message: 'ECS Cluster Name'
@@ -43,9 +24,10 @@ const questions = [
     }
   }
 ];
+const region = 'us-east-1';
 
 inquirer.prompt(questions).then(async answers => {
-  const {region, cluster, service} = answers;
+  const {cluster, service} = answers;
 
   const stopSpinner = ora(`🔴  Stopping ${service}`).start();
   notifier.notify(`🔴  Stopping ${service}`);
