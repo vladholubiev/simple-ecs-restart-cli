@@ -1,24 +1,29 @@
 #!/usr/bin/env node
 
 import inquirer from 'inquirer';
-import {ls, start, stop} from 'simple-ecs-restart';
+import {ls, lsClusters, start, stop} from 'simple-ecs-restart';
 import ora from 'ora';
 import notifier from 'node-notifier';
 
 const questions = [
   {
-    type: 'input',
+    type: 'list',
     name: 'cluster',
-    message: 'ECS Cluster Name'
+    message: 'ECS Cluster Name',
+    choices() {
+      const done = this.async();
+
+      return lsClusters().then(clusters => done(null, clusters));
+    }
   },
   {
     type: 'list',
     name: 'service',
     message: 'Service to restart',
-    choices({region, cluster}) {
+    choices({cluster}) {
       const done = this.async();
 
-      return ls(region, cluster).then(services => {
+      return ls('us-east-1', cluster).then(services => {
         done(null, services);
       });
     }
