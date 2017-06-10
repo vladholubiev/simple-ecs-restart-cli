@@ -1,6 +1,6 @@
 # Simple ECS restart CLI
 
-![demo](simple-ecs-restart-demo.gif)
+![demo](demo.gif)
 
 ## Features
 
