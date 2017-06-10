@@ -1,6 +1,6 @@
 {
   "name": "simple-ecs-restart-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simply Restart Service: for local development, red/green, without creating a new task definition",
   "main": "lib/index.js",
   "bin": {
