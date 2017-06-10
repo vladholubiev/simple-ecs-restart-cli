@@ -30,6 +30,7 @@ const questions = [
   }
 ];
 const region = 'us-east-1';
+const title = 'Simple ECS Restart';
 
 inquirer.prompt(questions).then(async answers => {
   const {cluster, service} = answers;
@@ -38,19 +39,19 @@ inquirer.prompt(questions).then(async answers => {
   const restartMessage = `✅  Successfully restarted ${service}!`;
 
   const stopSpinner = ora(stopMessage).start();
-  notifier.notify(stopMessage);
+  notifier.notify({title, message: stopMessage});
 
   await stop(region, cluster, service);
   stopSpinner.stopAndPersist();
 
   const startSpinner = ora(startMessage).start();
-  notifier.notify(startMessage);
+  notifier.notify({title, message: startMessage});
 
   await start(region, cluster, service);
   startSpinner.stopAndPersist();
 
   console.log(`\n${restartMessage}`);
-  notifier.notify(restartMessage);
+  notifier.notify({title, message: restartMessage});
 
   return process.exit(1);
 });
