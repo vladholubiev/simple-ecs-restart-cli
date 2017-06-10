@@ -28,19 +28,22 @@ const region = 'us-east-1';
 
 inquirer.prompt(questions).then(async answers => {
   const {cluster, service} = answers;
+  const stopMessage = `🔴  Stopping ${service}`;
+  const startMessage = `🔶  Starting ${service}`;
+  const restartMessage = `✅  Successfully restarted ${service}!`;
 
-  const stopSpinner = ora(`🔴  Stopping ${service}`).start();
-  notifier.notify(`🔴  Stopping ${service}`);
+  const stopSpinner = ora(stopMessage).start();
+  notifier.notify(stopMessage);
   await stop(region, cluster, service);
   stopSpinner.stopAndPersist();
 
-  const startSpinner = ora(`🔶  Starting ${service}`).start();
+  const startSpinner = ora(startMessage).start();
   await start(region, cluster, service);
-  notifier.notify(`🔶  Starting ${service}`);
+  notifier.notify(startMessage);
   startSpinner.stopAndPersist();
 
-  console.log(`\n✅  Successfully restarted ${service}!`);
-  notifier.notify(`✅  Successfully restarted ${service}!`);
+  console.log(`\n${restartMessage}`);
+  notifier.notify(restartMessage);
 
   return process.exit(1);
 });
